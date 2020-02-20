@@ -1,16 +1,22 @@
 CLASSES = {
-  0: 'class0',
-  1: 'class1',
-  2: 'class2',
-  3: 'class3',
-  4: 'class4',
+  0: 'alma_mater_sculpture',
+  1: 'butler_library',
+  2: 'lion_sculpture',
 };
 
 const MODEL_PATH =
     'model.json';
 
+function sum(vals){
+  var tot_sum = 0;
+  for(var i = 0; i < vals.length; i++) {
+    tot_sum += Number(vals[i]);
+  }
+  return tot_sum;
+}
+
 const IMAGE_SIZE = 192;
-const TOPK_PREDICTIONS = 5;
+const TOPK_PREDICTIONS = 3;
 
 let my_model;
 const demo = async () => {
@@ -87,6 +93,7 @@ async function predict(imgElement) {
  * @param logits Tensor representing the logits from my_model.
  * @param topK The number of top predictions to show.
  */
+
 async function getTopKClasses(logits, topK) {
   const values = await logits.data();
 
@@ -108,7 +115,7 @@ async function getTopKClasses(logits, topK) {
   for (let i = 0; i < topkIndices.length; i++) {
     topClassesAndProbs.push({
       className: CLASSES[topkIndices[i]],
-      probability: topkValues[i]
+      probability: topkValues[i] / sum(topkValues)
     })
   }
   return topClassesAndProbs;
