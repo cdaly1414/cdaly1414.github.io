@@ -33,13 +33,22 @@
 <body>
   <div class="tfjs-example-container">
     <section class='title-area'>
-      <h1>TensorFlow.js: Using a Keras model in the browser</h1>
+      <h1>TensorFlow.js: Using a Keras Model in the Browser</h1>
     </section>
 
     <section>
-      <p class='section-head'>Description</p>
+      <p class='section-head'>Description:</p>
       <p>
         This file is based on <a>https://github.com/tensorflow/tfjs-examples/tree/master/mobilenet</a>.
+      </p>
+      <p>
+        This project was initally created in February 2020 as an assignment for COMS 4995 Applied Deep Learning, a graduate computer science course at Columbia University.
+      </p>
+      <p>
+        A convolutional neural network was trained on a small dataset consisting of three classes of images, all of which are landmarks at Columbia: 1) Alma Mater Sculpture, 2) Columbia Lion Sculpture, and 3) The Butler Library.
+      </p>
+      <p>
+        To use this tool, simply upload an image (preferably an image of one of these three Columbia landmarks), and beside the image you will then see the predicted class probabilities for your image.
       </p>
     </section>
 
@@ -57,7 +66,7 @@
 
       <div id="predictions"></div>
 
-      <img style="display: none" id="cat" src="initial_image.jpg" width=192 height=192 />
+      <img style="display: none" id="cat" src="default_image.jpg" width=192 height=192 />
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
